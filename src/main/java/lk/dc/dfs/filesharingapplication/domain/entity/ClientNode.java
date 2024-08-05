@@ -1,4 +1,4 @@
-package lk.dc.dfs.filesharingapplication.entity;
+package lk.dc.dfs.filesharingapplication.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,7 +1,7 @@
 //package lk.dc.dfs.filesharingapplication.controller;
 //
 //import lk.dc.dfs.filesharingapplication.entity.ClientNode;
-//import lk.dc.dfs.filesharingapplication.service.NodeService;
+//import lk.dc.dfs.filesharingapplication.domain.service.NodeService;
 //import org.springframework.web.bind.annotation.*;
 //
 //import java.io.IOException;
