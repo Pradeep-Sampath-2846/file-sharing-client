@@ -10,15 +10,15 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-@Controller
-public class WebController {
-
-    @Autowired
-    private NodeService nodeService;
-
-    @GetMapping("/")
-    public String index(Model model) throws IOException {
-        nodeService.searchFile("harry potter");
-        return "index";
-    }
-}
+//@Controller
+//public class WebController {
+//
+//    @Autowired
+//    private NodeService nodeService;
+//
+//    @GetMapping("/")
+//    public String index(Model model) throws IOException {
+//        nodeService.searchFile("harry potter");
+//        return "index";
+//    }
+//}

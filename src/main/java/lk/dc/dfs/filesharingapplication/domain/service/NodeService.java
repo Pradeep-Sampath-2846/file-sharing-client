@@ -1,39 +1,21 @@
 package lk.dc.dfs.filesharingapplication.domain.service;
 
-import lk.dc.dfs.filesharingapplication.domain.entity.ClientNode;
 import lk.dc.dfs.filesharingapplication.domain.service.core.GNode;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.net.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 import java.util.UUID;
 
 @Service
 public class NodeService {
 
-    private DatagramSocket socket;
-    @Getter
-    private List<ClientNode> routingTable = new ArrayList<>();
     @Getter
     private final GNode currentNode;
-    @Getter
-    private List<ClientNode> searchResults = new ArrayList<>();
-    @Value("${bootstrap.server.ip}")
-    private String bootstrapIp;
-
-    @Value("${bootstrap.server.port}")
-    private int bootstrapPort;
+    private final String bootstrapIp;
+    private final int bootstrapPort;
 
 
     private int getAvailablePort() throws IOException {
@@ -43,12 +25,16 @@ public class NodeService {
     }
 
 
-    public NodeService(GNode currentNode) throws Exception {
+    public NodeService(GNode currentNode,
+                       @Value("${bootstrap.server.ip}") String bootstrapIp,
+                       @Value("${bootstrap.server.port}") int bootstrapPort) throws Exception {
+        this.bootstrapIp = bootstrapIp;
+        this.bootstrapPort = bootstrapPort;
         String uniqueID = UUID.randomUUID().toString();
         this.currentNode = currentNode;
         currentNode.init("node" + uniqueID);
         try {
-            this.socket = new DatagramSocket();
+            DatagramSocket socket = new DatagramSocket();
         } catch (IOException e) {
             e.printStackTrace();
         }
