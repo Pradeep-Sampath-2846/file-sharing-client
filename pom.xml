@@ -10,7 +10,7 @@
     </parent>
     <groupId>lk.dc.dfs</groupId>
     <artifactId>file-sharing-application</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>file-sharing-application</name>
     <description>file-sharing-application</description>
     <url/>
@@ -62,6 +62,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>file-sharing-application</finalName>
     </build>
 
 </project>
