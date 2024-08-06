@@ -78,7 +78,7 @@ public class SearchQueryHandler implements AbstractResponseHandler, AbstractRequ
 
     @Override
     public void handleResponse(ChannelMessage message) {
-        LOG.fine("Received SER : " + message.getMessage()
+        LOG.fine("Received SER : " + "[content-hidden]"
                 + " from: " + message.getAddress()
                 + " port: " + message.getPort());
 

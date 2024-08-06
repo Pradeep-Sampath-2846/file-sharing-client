@@ -43,7 +43,7 @@ public class QueryHitHandler implements AbstractResponseHandler {
 
     @Override
     public synchronized void handleResponse(ChannelMessage message) {
-        LOG.fine("Received SEROK : " + message.getMessage()
+        LOG.fine("Received SEROK : " + "[content-hidden]"
                 + " from: " + message.getAddress()
                 + " port: " + message.getPort());
 

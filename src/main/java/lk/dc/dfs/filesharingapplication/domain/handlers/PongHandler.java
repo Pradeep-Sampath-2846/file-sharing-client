@@ -41,7 +41,7 @@ public class PongHandler implements AbstractRequestHandler, AbstractResponseHand
 
     @Override
     public void handleResponse(ChannelMessage message) {
-        LOG.fine("Received PONG : " + message.getMessage()
+        LOG.fine("Received PONG : " + "[hidden]"
                 + " from: " + message.getAddress()
                 + " port: " + message.getPort());
 

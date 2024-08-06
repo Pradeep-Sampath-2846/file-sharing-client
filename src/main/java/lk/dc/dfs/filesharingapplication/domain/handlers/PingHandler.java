@@ -50,7 +50,7 @@ public class PingHandler implements AbstractRequestHandler, AbstractResponseHand
     @Override
     public void handleResponse(ChannelMessage message) {
 
-        LOG.fine("Received PING : " + message.getMessage()
+        LOG.fine("Received PING : " + "[content-hidden]"
                 + " from: " + message.getAddress()
                 + " port: " + message.getPort());
 
