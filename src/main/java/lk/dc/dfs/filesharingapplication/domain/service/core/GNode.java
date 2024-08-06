@@ -139,7 +139,7 @@ public class GNode {
        return this.messageBroker.getRoutingTable();
     }
 
-    public String getFileNames() {
+    public List<String> getFileNames() {
         return this.messageBroker.getFiles();
     }
 }

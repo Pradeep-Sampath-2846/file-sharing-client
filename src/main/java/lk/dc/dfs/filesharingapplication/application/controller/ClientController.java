@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -40,6 +41,11 @@ public class ClientController {
     @GetMapping("/search-file")
     public Map<String, SearchResult> searchFile(@RequestParam String filename) throws IOException {
         return nodeService.searchFile(filename);
+    }
+
+    @GetMapping("/files")
+    public ResponseEntity<Map<String,List<String>>> currentNodeFiles() {
+        return nodeService.getCurrentNodeFiles();
     }
 
     @GetMapping("/download-file")

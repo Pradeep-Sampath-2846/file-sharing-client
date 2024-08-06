@@ -6,6 +6,7 @@ import lk.dc.dfs.filesharingapplication.domain.util.Constants;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class FileManager {
 
@@ -103,13 +104,9 @@ public class FileManager {
         }
     }
 
-    public String getFileNames() {
-        String fileString = "Total files: " + files.size() + "\n";
-        fileString += "++++++++++++++++++++++++++\n";
-        for (String s: files.keySet()) {
-            fileString += s + "\n";
-        }
-        return fileString;
+    public List<String> getFileNames() {
+        return files.keySet().stream().collect(Collectors.toList());
+
     }
 
     public void createFile(String fileName) {

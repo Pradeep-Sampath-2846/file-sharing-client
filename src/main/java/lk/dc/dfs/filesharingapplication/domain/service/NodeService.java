@@ -21,9 +21,7 @@ import java.net.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class NodeService {
@@ -90,6 +88,12 @@ public class NodeService {
                 .headers(headers)
                 .contentLength(downloadedFile.length())
                 .body(resource);
+    }
+
+    public ResponseEntity<Map<String,List<String>>> getCurrentNodeFiles(){
+        Map<String,List<String>> files = new HashMap<>();
+        files.put("fileNameList",currentNode.getFileNames());
+        return ResponseEntity.ok(files);
     }
 
 
