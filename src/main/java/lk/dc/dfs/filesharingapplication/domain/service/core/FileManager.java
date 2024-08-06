@@ -53,19 +53,12 @@ public class FileManager {
     }
 
     public Set<String> searchForFile(String query) {
-        String[] querySplit = query.split(" ");
 
         Set<String> result = new HashSet<String>();
 
-        for (String q: querySplit){
-            for (String key: this.files.keySet()){
-                String[] fileNameSplit = key.split(" ");
-                for (String f : fileNameSplit){
-                    if (f.toLowerCase().equals(q.toLowerCase())){
-                        result.add(key);
-                    }
-                }
-            }
+        for (String key: this.files.keySet()){
+            boolean contains = key.toLowerCase().contains(query.trim().toLowerCase());
+            if (contains) result.add(key);
         }
 
         return result;
