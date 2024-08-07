@@ -10,6 +10,7 @@ import lk.dc.dfs.filesharingapplication.domain.util.Constants;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -148,7 +149,7 @@ public class MessageBroker extends Thread {
         this.leaveHandler.sendLeave();
     }
 
-    public String getFiles() {
+    public List<String> getFiles() {
         return this.fileManager.getFileNames();
     }
 }

@@ -55,50 +55,6 @@ class SearchManager {
         queryHitHandler.setSearchResutls(null);
     }
 
-//    private void printSearchResults(Map<String, SearchResult> searchResults) {
-//
-//        System.out.println("\nFile search results : ");
-//
-//        ArrayList<String> headers = new ArrayList<String>();
-//        headers.add("Option No");
-//        headers.add("FileName");
-//        headers.add("Source");
-//        headers.add("QueryHit time (ms)");
-//        headers.add("Hop count");
-//
-//        ArrayList<ArrayList<String>> content = new ArrayList<ArrayList<String>>();
-//
-//        int fileIndex = 1;
-//
-//        this.fileDownloadOptions = new HashMap<Integer, SearchResult>();
-//
-//        for (String s : searchResults.keySet()) {
-//            SearchResult searchResult = searchResults.get(s);
-//            this.fileDownloadOptions.put(fileIndex, searchResult);
-//
-//            ArrayList<String> row1 = new ArrayList<String>();
-//            row1.add("" + fileIndex);
-//            row1.add(searchResult.getFileName());
-//            row1.add(searchResult.getAddress() + ":" + searchResult.getPort());
-//            row1.add("" + searchResult.getTimeElapsed());
-//            row1.add("" + searchResult.getHops());
-//
-//            content.add(row1);
-//
-//            fileIndex++;
-//        }
-//
-//        if (fileDownloadOptions.size() == 0) {
-//            System.out.println("Sorry. No files are found!!!");
-//
-//            return;
-//        }
-//
-//        ConsoleTable ct = new ConsoleTable(headers, content);
-//        ct.printTable();
-//
-//    }
-
     public SearchResult getFileDetails(String fileName) {
         return this.fileDownloadOptions.get(fileName);
     }

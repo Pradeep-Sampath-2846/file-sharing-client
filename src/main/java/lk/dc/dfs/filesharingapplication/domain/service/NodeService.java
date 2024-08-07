@@ -1,29 +1,20 @@
 package lk.dc.dfs.filesharingapplication.domain.service;
 
-import lk.dc.dfs.filesharingapplication.domain.entity.ClientNode;
 import lk.dc.dfs.filesharingapplication.domain.service.core.GNode;
 import lk.dc.dfs.filesharingapplication.domain.service.core.RoutingTable;
 import lk.dc.dfs.filesharingapplication.domain.service.core.SearchResult;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 import java.io.*;
 import java.net.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class NodeService {
@@ -90,6 +81,12 @@ public class NodeService {
                 .headers(headers)
                 .contentLength(downloadedFile.length())
                 .body(resource);
+    }
+
+    public ResponseEntity<Map<String,List<String>>> getCurrentNodeFiles(){
+        Map<String,List<String>> files = new HashMap<>();
+        files.put("fileNameList",currentNode.getFileNames());
+        return ResponseEntity.ok(files);
     }
 
 

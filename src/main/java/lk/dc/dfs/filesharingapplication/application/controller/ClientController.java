@@ -8,10 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping("/client")
+@CrossOrigin("http://localhost:3000")
 public class ClientController {
 
     private final NodeService nodeService;
@@ -40,6 +42,11 @@ public class ClientController {
     @GetMapping("/search-file")
     public Map<String, SearchResult> searchFile(@RequestParam String filename) throws IOException {
         return nodeService.searchFile(filename);
+    }
+
+    @GetMapping("/files")
+    public ResponseEntity<Map<String,List<String>>> currentNodeFiles() {
+        return nodeService.getCurrentNodeFiles();
     }
 
     @GetMapping("/download-file")

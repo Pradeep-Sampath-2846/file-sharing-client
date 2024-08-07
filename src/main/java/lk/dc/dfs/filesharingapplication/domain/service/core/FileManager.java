@@ -6,6 +6,7 @@ import lk.dc.dfs.filesharingapplication.domain.util.Constants;
 import java.io.*;
 import java.util.*;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class FileManager {
 
@@ -52,19 +53,12 @@ public class FileManager {
     }
 
     public Set<String> searchForFile(String query) {
-        String[] querySplit = query.split(" ");
 
         Set<String> result = new HashSet<String>();
 
-        for (String q: querySplit){
-            for (String key: this.files.keySet()){
-                String[] fileNameSplit = key.split(" ");
-                for (String f : fileNameSplit){
-                    if (f.toLowerCase().equals(q.toLowerCase())){
-                        result.add(key);
-                    }
-                }
-            }
+        for (String key: this.files.keySet()){
+            boolean contains = key.toLowerCase().contains(query.trim().toLowerCase());
+            if (contains) result.add(key);
         }
 
         return result;
@@ -103,13 +97,9 @@ public class FileManager {
         }
     }
 
-    public String getFileNames() {
-        String fileString = "Total files: " + files.size() + "\n";
-        fileString += "++++++++++++++++++++++++++\n";
-        for (String s: files.keySet()) {
-            fileString += s + "\n";
-        }
-        return fileString;
+    public List<String> getFileNames() {
+        return files.keySet().stream().collect(Collectors.toList());
+
     }
 
     public void createFile(String fileName) {
