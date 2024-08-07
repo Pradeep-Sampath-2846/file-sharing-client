@@ -131,10 +131,6 @@ public class GNode {
         }
     }
 
-    public void printRoutingTable(){
-        this.messageBroker.getRoutingTable().print();
-    }
-
     public RoutingTable getRoutingTable() {
        return this.messageBroker.getRoutingTable();
     }

@@ -36,9 +36,6 @@ public class UDPClient extends Thread {
         }
         socket.close();
     }
-    public void stopProcessing() {
-        this.process = false;
-    }
 }
 
 

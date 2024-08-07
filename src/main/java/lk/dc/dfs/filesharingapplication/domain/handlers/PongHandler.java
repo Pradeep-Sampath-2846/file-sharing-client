@@ -54,13 +54,10 @@ public class PongHandler implements AbstractRequestHandler, AbstractResponseHand
         if(keyword.equals("BPONG")) {
             if(routingTable.getCount() < Constants.MIN_NEIGHBOURS) {
                 this.routingTable.addNeighbour(address, port, message.getPort());
-//                this.routingTable.print();
             }
         } else {
             this.timeoutManager.registerResponse(String.format(Constants.PING_MESSAGE_ID_FORMAT,address,port));
             this.routingTable.addNeighbour(address, port, message.getPort());
-
-//            this.routingTable.print();
         }
 
     }
